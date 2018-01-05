@@ -1,0 +1,120 @@
+#find the median of a number
+
+def median(x):
+    x = sorted(x)
+    sortLst = (len(x))
+    firstNum = x[sortLst // 2]
+    secondNum = x[sortLst // 2 - 1]
+    if sortLst % 2 == 0:
+        sum = (firstNum + secondNum) / 2.0
+    elif sortLst % 2 != 0:
+        sum = x[sortLst // 2]
+
+def rounder(x):
+    i = len(str(x)) -1
+    while True:
+        print(x[i])
+        i -= 1
+        if i < 0:
+            break
+
+def front_back(str):
+    newStr = []
+    newStr.append(str[len(str) - 1])
+    newStr.append(str[1 : (len(str) - 1)])
+    newStr.append(str[0])
+    return "".join(newStr)
+
+def not_string(str):
+  if str.find("not") != -1:
+    return str
+  else:
+    return "not " + str
+
+
+def string_splosion(str):
+    newStr = []
+    i = 0
+    x = len(str)
+    while i < x:
+        newStr.append(str[: i + 1])
+        i += 1
+    return "".join(newStr)
+
+def fizzbuzz(limit):
+    i = 1
+    while i <= limit:
+        if i % 3 == 0 and i % 5 == 0:
+            print("FizzBuzz")
+        elif i % 3 == 0:
+            print("Fizz")
+        elif i % 5 == 0:
+            print("Buzz")
+        else:
+            print(i)
+        i += 1
+
+def count_hi(str):
+    count = 0
+    i = 0
+    x = len(str) - 1
+
+    while i <= x:
+        if str[i] == "h" and str[i + 1] == "i":
+            count += 1
+        i += 1
+    return count
+
+def array_diff(a, b):
+    # your code here
+    i = 0
+    k = len(b) - 1
+    while i <= k:
+        print(b[i])
+        for x in a:
+            print(x, "x")
+            if x == b[i]:
+                a.remove(x)
+                i = 0
+                break
+        i += 1
+    return a
+
+def filter_list(l):
+    #'return a new list with the strings filtered out'
+    i = 0
+    x = len(l) - 1
+    newLst = []
+    while i <= x:
+        if type(l[i]) is str:
+            i += 1
+            continue
+        else:
+            newLst.append(l[i])
+            i += 1
+
+    return newLst
+
+def persistence(n):
+    # your code
+    count = 0
+    sum = 1
+    while len(str(n)) > 1:
+        print(n)
+        n = str(n)
+        for i in n:
+            sum *= int(i)
+        n = sum
+        sum = 1
+        count += 1
+    return count
+
+def get_middle(s):
+    #your code here
+    x = int(len(s) / 2)
+    if len(s) % 2 != 0:
+        return s[x]
+    else:
+        return s[x - 1 : x + 1]
+
+print(get_middle("middle"))
